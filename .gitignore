@@ -2,7 +2,7 @@
 models/**
 checkpoint/**
 samples/**
-techcrunch_posts.txt
+**/techcrunch_posts.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
