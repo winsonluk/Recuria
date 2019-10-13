@@ -14,5 +14,5 @@ with open('io/pitches.txt') as f:
                 prefix=line,
                 return_as_list=True,
                 )
-        with open('io/descriptions.txt') as g:
-            g.write(res[0][32:].replace('\n', ' ').rsplit('.', 1)[0].strip() + '.')
+        with open('io/descriptions.txt', 'a+') as g:
+            g.write(res[0][32:].replace('\n', ' ').rsplit('.', 1)[0].strip() + '.\n')
