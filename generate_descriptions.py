@@ -1,9 +1,11 @@
+import gc
 import gpt_2_simple as gpt2
 
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
 with open('io/pitches.txt') as f:
+    gc.collect()
     for line in f:
         line = line[0].lower() + line[1:]
         line = 'Dotino is a technology company. Dotino\'s mission is ' + line.strip()
