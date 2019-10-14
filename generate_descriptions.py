@@ -1,10 +1,11 @@
 import gc
+import re
 import gpt_2_simple as gpt2
 
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
-START = 57
+START = 399
 
 with open('io/pitches.txt') as f, open('io/names.txt') as f2:
     counter = 0
@@ -12,7 +13,9 @@ with open('io/pitches.txt') as f, open('io/names.txt') as f2:
         counter += 1
         if counter < START:
             continue
-        gc.collect()
+#        if counter % 10 == 0:
+#            sess = gpt2.reset_session(sess)
+#            gpt2.load_gpt2(sess)
         line = line[0].lower() + line[1:]
         line2 = line2[:-1]
         line = line2 + ' is a technology company. ' + line2 + '\'s mission is ' + line.strip() + '.'
@@ -23,8 +26,13 @@ with open('io/pitches.txt') as f, open('io/names.txt') as f2:
                 prefix=line,
                 return_as_list=True,
                 )
+        res[0] = res[0][len(line2) + 26:].replace('\n', ' ').rsplit('.', 1)[0].strip()
+        if bool(re.search('\$\d+$', res[0])):
+            res[0] = res[0] + '8 million'
+        res[0] = res[0] +  '.\n'
         with open('io/descriptions.txt', 'a+') as g:
-            g.write(res[0][len(line2) + 26:].replace('\n', ' ').rsplit('.', 1)[0].strip() + '.\n')
+            g.write(res[0])
         del line
         del line2
         del res
+        gc.collect()
