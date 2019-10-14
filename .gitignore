@@ -3,6 +3,7 @@ models/**
 checkpoint/**
 samples/**
 **/techcrunch_posts.txt
+**/nohup.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

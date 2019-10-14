@@ -4,9 +4,15 @@ import gpt_2_simple as gpt2
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
+START = 57
+
 with open('io/pitches.txt') as f, open('io/names.txt') as f2:
-    gc.collect()
+    counter = 0
     for line, line2 in zip(f, f2):
+        counter += 1
+        if counter < START:
+            continue
+        gc.collect()
         line = line[0].lower() + line[1:]
         line2 = line2[:-1]
         line = line2 + ' is a technology company. ' + line2 + '\'s mission is ' + line.strip() + '.'
@@ -19,3 +25,6 @@ with open('io/pitches.txt') as f, open('io/names.txt') as f2:
                 )
         with open('io/descriptions.txt', 'a+') as g:
             g.write(res[0][len(line2) + 26:].replace('\n', ' ').rsplit('.', 1)[0].strip() + '.\n')
+        del line
+        del line2
+        del res
