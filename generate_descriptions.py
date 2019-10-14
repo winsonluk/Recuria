@@ -5,7 +5,7 @@ import gpt_2_simple as gpt2
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
-START = 399
+START = 538
 
 with open('io/pitches.txt') as f, open('io/names.txt') as f2:
     counter = 0
