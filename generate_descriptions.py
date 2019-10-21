@@ -1,11 +1,12 @@
 import gc
 import re
+import sys
 import gpt_2_simple as gpt2
 
 sess = gpt2.start_tf_sess()
 gpt2.load_gpt2(sess)
 
-START = 1
+START = int(sys.argv[1])
 
 with open('io/summaries.txt') as f, open('io/names.txt') as f2:
     counter = 0
