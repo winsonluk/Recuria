@@ -16,7 +16,7 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
         line = line2.strip() + ' is a technology company. ' + line.strip()
         line = line.replace('<|endoftext|>', ' ')
         res = gpt2.generate(sess,
-                length=140,
+                length=100,
                 top_p=0.2,
                 temperature=1.3,
                 prefix=line,
