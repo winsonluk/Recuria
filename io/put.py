@@ -1,10 +1,10 @@
 import requests
 import json
 
-START = 0
+START = 1
 
-with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions.txt') as descriptions:
-    counter = -1
+with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions_with_summaries.txt') as descriptions:
+    counter = 0
     for name, pitch, description in zip(names, pitches, descriptions):
 
         counter += 1
