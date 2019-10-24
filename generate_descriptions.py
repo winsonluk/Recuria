@@ -14,7 +14,7 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
         counter += 1
         if counter < START:
             continue
-        line = line2.strip() + ' is a technology company. ' + line.strip()
+        line = line2.strip() + ' is a software technology startup company. ' + line.strip()
         line = line.replace('<|endoftext|>', ' ')
         res = gpt2.generate(sess,
                 length=100,
@@ -23,7 +23,7 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
                 prefix=line,
                 return_as_list=True,
                 )
-        res[0] = res[0][len(line2) + 25:].replace('\n', ' ').rsplit('.', 1)[0].strip()
+        res[0] = res[0][len(line2) + 42:].replace('\n', ' ').rsplit('.', 1)[0].strip()
         if bool(re.search('\$\d+$', res[0])):
             res[0] = res[0] + '8 million'
         res[0] = res[0] +  '.\n'
