@@ -23,9 +23,10 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
                 return_as_list=True,
                 )
         paragraph = res[0][len(line2) + 42:].replace('\n', ' ').replace('”', '"').replace('“', '"').rsplit('.', 1)[0].strip()
+        paragraph = re.sub(r'(\d+)(\.)(\d+)', r'\1\3', paragraph)
         sentences = [x + '. ' for x in paragraph.split('. ') if '$' not in x and '€' not in x and '£' not in x and 'round' not in x.lower()]
 
-        if sentences[-1].count('"') % 2 == 1:
+        if ''.join(sentences).count('"') % 2 == 1:
             sentences[-1] = sentences[-1][:-1] + '"'
         else:
             sentences[-1] = sentences[-1][:-1]
