@@ -1,4 +1,3 @@
-import gc
 import re
 import sys
 import gpt_2_simple as gpt2
@@ -17,19 +16,20 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
         line = line2.strip() + ' is a software technology startup company. ' + line.strip()
         line = line.replace('<|endoftext|>', ' ')
         res = gpt2.generate(sess,
-                length=100,
-                top_p=0.2,
-                temperature=1.3,
+                length=80,
+                top_p=0.25,
+                temperature=1.2,
                 prefix=line,
                 return_as_list=True,
                 )
-        res[0] = res[0][len(line2) + 42:].replace('\n', ' ').rsplit('.', 1)[0].strip()
-        if bool(re.search('\$\d+$', res[0])):
-            res[0] = res[0] + '8 million'
-        res[0] = res[0] +  '.\n'
-        with open('io/descriptions_with_summaries.txt', 'a+') as g:
-            g.write(res[0])
-        del line
-        del line2
-        del res
-        gc.collect()
+        paragraph = res[0][len(line2) + 42:].replace('\n', ' ').replace('”', '"').replace('“', '"').rsplit('.', 1)[0].strip()
+        sentences = [x + '. ' for x in paragraph.split('. ') if '$' not in x and '€' not in x and '£' not in x and 'round' not in x.lower()]
+
+        if sentences[-1].count('"') % 2 == 1:
+            sentences[-1] = sentences[-1][:-1] + '"'
+        else:
+            sentences[-1] = sentences[-1][:-1]
+
+        paragraph = ''.join(sentences) + '\n'
+        with open('io/descriptions.txt', 'a+') as g:
+            g.write(paragraph)
