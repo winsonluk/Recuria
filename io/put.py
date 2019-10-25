@@ -3,7 +3,7 @@ import json
 
 START = 0
 
-with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions_with_summaries.txt') as descriptions:
+with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions.txt') as descriptions:
     counter = -1
     for name, pitch, description in zip(names, pitches, descriptions):
 
