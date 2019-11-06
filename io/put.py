@@ -1,7 +1,8 @@
-import requests
 import json
+import requests
+import sys
 
-START = 1800
+START = 0
 
 with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions.txt') as descriptions:
     counter = -1
@@ -28,6 +29,7 @@ with open('names.txt') as names, open('pitches.txt') as pitches, open('descripti
                 continue
         except requests.exceptions.HTTPError as err:
             print(err)
+            sys.exit()
 
         payload = json.dumps({
             "operation": "create",
@@ -47,3 +49,4 @@ with open('names.txt') as names, open('pitches.txt') as pitches, open('descripti
             r.raise_for_status()
         except requests.exceptions.HTTPError as err:
             print(err)
+            sys.exit()
