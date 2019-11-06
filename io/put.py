@@ -2,7 +2,7 @@ import json
 import requests
 import sys
 
-START = 0
+START = 4200
 
 with open('names.txt') as names, open('pitches.txt') as pitches, open('descriptions.txt') as descriptions:
     counter = -1
