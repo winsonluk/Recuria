@@ -7,7 +7,7 @@ gpt2.load_gpt2(sess)
 
 START = int(sys.argv[1])
 
-with open('io/summaries.txt') as f, open('io/names.txt') as f2:
+with open('io/summaries.txt', 'r') as f, open('io/names.txt', 'r') as f2:
     counter = 0
     for line, line2 in zip(f, f2):
         counter += 1
