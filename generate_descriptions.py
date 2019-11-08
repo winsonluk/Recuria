@@ -32,5 +32,5 @@ with open('io/summaries.txt') as f, open('io/names.txt') as f2:
             sentences[-1] = sentences[-1][:-1]
 
         paragraph = ''.join(sentences) + '\n'
-        with open('io/descriptions.txt', 'a+') as g:
+        with open('io/descriptions.txt', 'a') as g:
             g.write(paragraph)
