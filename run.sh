@@ -1,7 +1,7 @@
 #!/bin/sh
 
 while true; do
-  # kill $(pgrep -x run.sh | grep -v ^$$$)
+  kill $(pgrep -x run.sh | grep -v ^$$$)
   /usr/bin/pkill -f python
   cd ~/gpt_descriptions
   git commit -am "update" && git push --set-upstream origin master
