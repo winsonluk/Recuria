@@ -35,4 +35,4 @@ with open('io/summaries.txt', 'r') as f, open('io/names.txt', 'r') as f2:
         paragraph = ''.join(sentences) + '\n'
         with open('io/descriptions.txt', 'a') as g:
             g.write(paragraph)
-        os.system('git push origin master')
+        os.system('git commit -am "update" && git push origin master')
