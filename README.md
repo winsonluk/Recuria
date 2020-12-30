@@ -1,4 +1,4 @@
-# Project 1 Generative Text
+# Recuria
 
 Winson Luk, wluk@ucsd.edu
 
