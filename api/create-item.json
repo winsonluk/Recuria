@@ -1,0 +1,12 @@
+{
+    "operation": "create",
+    "tableName": "lambda-apigateway",
+    "payload": {
+        "Item": {
+            "id": "3",
+            "name": "Framedge",
+            "tagline": "Virtualize your surroundings with our mobile visual recognization technology.",
+            "description": "description"
+        }
+    }
+}
