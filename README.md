@@ -40,32 +40,32 @@ The ideas generated have been fairly realistic (most are bad, some are good), so
 - I sampled both models with temperature ranges from 0.2 to 2.0 and top-p from 0.1 to 1.0 (higher values translate to more "creativity" in the text) to find the optimal parameters for realistic text generation.
 
 ## Examples
-- ![1](1.png)
-- ![2](2.png)
-- ![4](4.png)
-- ![5](5.png)
-- ![7](7.png)
-- ![8](8.png)
-- ![9](9.png)
-- ![10](10.png)
-- ![11](11.png)
+- ![1](assets/1.png)
+- ![2](assets/2.png)
+- ![4](assets/4.png)
+- ![5](assets/5.png)
+- ![7](assets/7.png)
+- ![8](assets/8.png)
+- ![9](assets/9.png)
+- ![10](assets/10.png)
+- ![11](assets/11.png)
 
 ## Bloopers
 
 ### Lowering unemployment
-![Lowering unemployment](latinos.png)
+![Lowering unemployment](assets/latinos.png)
 
 ### Strategic arms sales
-![Strategic arms sales](nazis.png)
+![Strategic arms sales](assets/nazis.png)
 
 ### Internet of things
-![Internet of things](smart.png)
+![Internet of things](assets/smart.png)
 
 ### Workers of the world, unite!
-![Workers of the world, unite!](tinder.png)
+![Workers of the world, unite!](assets/tinder.png)
 
 ### 10,000 hours
-![10,000 hours](strip.png)
+![10,000 hours](assets/strip.png)
 
 ## Reference
 
