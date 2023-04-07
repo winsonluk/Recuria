@@ -29,7 +29,7 @@ The ideas generated have been fairly realistic (most are bad, some are good), so
 
 ## Results
 
-- http://recuria.com
+- http://dotino.com
 - https://github.com/winsonluk/gpt_descriptions/blob/master/io/descriptions.txt
 
 ## Technical Notes
